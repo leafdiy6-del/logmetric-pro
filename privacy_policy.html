@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — LogMetric Pro</title>
+  <style>
+    :root {
+      --accent: #2e7d32;
+      --bg: #f9f9f7;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666;
+      --border: #e0e0e0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+    }
+    header {
+      background: var(--accent);
+      color: #fff;
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+    }
+    header h1 { font-size: 1.6rem; font-weight: 700; }
+    header p  { font-size: 0.9rem; opacity: 0.85; margin-top: 0.3rem; }
+
+    .lang-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .lang-tabs button {
+      padding: 0.4rem 1.1rem;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-tabs button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .container { max-width: 760px; margin: 2rem auto; padding: 0 1.2rem 4rem; }
+
+    .section { margin-bottom: 2rem; }
+    .section h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      border-left: 3px solid var(--accent);
+      padding-left: 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+    .section p, .section li { font-size: 0.95rem; color: var(--text); }
+    .section ul { padding-left: 1.4rem; }
+    .section ul li { margin-bottom: 0.3rem; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      margin-top: 0.5rem;
+    }
+    th {
+      background: #e8f5e9;
+      color: var(--accent);
+      text-align: left;
+      padding: 0.5rem 0.7rem;
+      border: 1px solid var(--border);
+    }
+    td {
+      padding: 0.45rem 0.7rem;
+      border: 1px solid var(--border);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    .updated {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 3rem;
+    }
+
+    /* language sections */
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Privacy Policy — LogMetric Pro</h1>
+  <p>Leaff d.o.o. &nbsp;|&nbsp; leaff.doo@icloud.com</p>
+</header>
+
+<div class="lang-tabs">
+  <button class="active" onclick="switchLang('zh', this)">中文</button>
+  <button onclick="switchLang('en', this)">English</button>
+  <button onclick="switchLang('sl', this)">Slovenščina</button>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════
+     CHINESE
+══════════════════════════════════════════════ -->
+<div id="lang-zh" class="lang-section active">
+
+  <div class="section">
+    <h2>1. 简介</h2>
+    <p>本隐私政策适用于由 <strong>Leaff d.o.o.</strong> 开发的 <strong>LogMetric Pro</strong> 应用程序（以下简称"本应用"）。我们非常重视您的隐私，本文件将说明我们如何收集、使用和保护您的数据。</p>
+  </div>
+
+  <div class="section">
+    <h2>2. 我们收集的数据</h2>
+    <table>
+      <tr><th>数据类型</th><th>存储位置</th><th>用途</th></tr>
+      <tr><td>许可证激活信息（邮箱/激活码）</td><td>Supabase 云端</td><td>验证授权、防止盗版</td></tr>
+      <tr><td>项目与原木测量数据</td><td>本地设备（SQLite）</td><td>用户业务数据存储</td></tr>
+      <tr><td>应用偏好设置</td><td>本地设备（SharedPreferences）</td><td>保存语言、主题等设置</td></tr>
+      <tr><td>导出文件（PDF / Excel）</td><td>本地设备或用户主动分享</td><td>用户主动操作，不上传</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>3. 我们不收集的数据</h2>
+    <ul>
+      <li>位置信息</li>
+      <li>相机或麦克风数据</li>
+      <li>设备联系人或通讯录</li>
+      <li>广告标识符</li>
+      <li>任何用于广告目的的个人信息</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. 第三方服务</h2>
+    <p>本应用使用 <strong>Supabase</strong>（supabase.com）处理许可证验证。Supabase 是符合 GDPR 的云服务提供商。您可查阅 Supabase 隐私政策了解其数据处理方式。除此之外，本应用不集成任何广告 SDK、分析工具或社交平台 SDK。</p>
+  </div>
+
+  <div class="section">
+    <h2>5. 数据保留</h2>
+    <ul>
+      <li><strong>本地数据</strong>：保留在您的设备上，卸载应用即删除。</li>
+      <li><strong>许可证数据</strong>：在 Supabase 中保留，直到您申请删除。</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. 您的权利</h2>
+    <p>您有权：查阅我们持有的关于您的数据；请求更正或删除；撤回授权同意。如需行使上述权利，请联系：<strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+  <div class="section">
+    <h2>7. 儿童隐私</h2>
+    <p>本应用不面向 13 岁以下儿童，我们不会故意收集儿童个人信息。</p>
+  </div>
+
+  <div class="section">
+    <h2>8. 政策变更</h2>
+    <p>若本政策发生重大变更，我们将在应用内或通过注册邮件通知您。继续使用本应用视为接受更新后的政策。</p>
+  </div>
+
+  <div class="section">
+    <h2>9. 联系我们</h2>
+    <p>数据控制者：<strong>Leaff d.o.o.</strong><br/>
+    邮箱：<strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+</div><!-- /lang-zh -->
+
+
+<!-- ══════════════════════════════════════════════
+     ENGLISH
+══════════════════════════════════════════════ -->
+<div id="lang-en" class="lang-section">
+
+  <div class="section">
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy applies to <strong>LogMetric Pro</strong>, developed by <strong>Leaff d.o.o.</strong> ("we", "us"). We are committed to protecting your privacy. This document explains what data we collect, how we use it, and your rights.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Data We Collect</h2>
+    <table>
+      <tr><th>Data Type</th><th>Storage</th><th>Purpose</th></tr>
+      <tr><td>License activation info (email / activation code)</td><td>Supabase cloud</td><td>License verification, anti-piracy</td></tr>
+      <tr><td>Project and log measurement data</td><td>Local device (SQLite)</td><td>User business data storage</td></tr>
+      <tr><td>App preferences &amp; settings</td><td>Local device (SharedPreferences)</td><td>Language, theme, and other settings</td></tr>
+      <tr><td>Exported files (PDF / Excel)</td><td>Local device or user-initiated sharing</td><td>User-initiated only, never uploaded</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>3. Data We Do NOT Collect</h2>
+    <ul>
+      <li>Location / GPS data</li>
+      <li>Camera or microphone data</li>
+      <li>Contacts or address book</li>
+      <li>Advertising identifiers</li>
+      <li>Any personal data for advertising purposes</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Third-Party Services</h2>
+    <p>The app uses <strong>Supabase</strong> (supabase.com) for license verification. Supabase is a GDPR-compliant cloud provider. Please refer to Supabase's Privacy Policy for details on their data handling. We do not integrate any advertising SDKs, analytics platforms, or social media SDKs.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Data Retention</h2>
+    <ul>
+      <li><strong>Local data</strong>: Stored on your device; deleted when you uninstall the app.</li>
+      <li><strong>License data</strong>: Retained on Supabase until you request deletion.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Your Rights</h2>
+    <p>You have the right to: access data we hold about you; request correction or deletion; withdraw consent. To exercise these rights, contact us at: <strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+  <div class="section">
+    <h2>7. Children's Privacy</h2>
+    <p>LogMetric Pro is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Changes to This Policy</h2>
+    <p>If we make material changes to this policy, we will notify you via the app or your registered email. Continued use of the app constitutes acceptance of the updated policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Contact</h2>
+    <p>Data Controller: <strong>Leaff d.o.o.</strong><br/>
+    Email: <strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+</div><!-- /lang-en -->
+
+
+<!-- ══════════════════════════════════════════════
+     SLOVENIAN
+══════════════════════════════════════════════ -->
+<div id="lang-sl" class="lang-section">
+
+  <div class="section">
+    <h2>1. Uvod</h2>
+    <p>Ta politika zasebnosti velja za aplikacijo <strong>LogMetric Pro</strong>, ki jo je razvilo podjetje <strong>Leaff d.o.o.</strong> Zavezani smo k varstvu vaše zasebnosti. Ta dokument pojasnjuje, katere podatke zbiramo, kako jih uporabljamo in kakšne so vaše pravice.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Podatki, ki jih zbiramo</h2>
+    <table>
+      <tr><th>Vrsta podatkov</th><th>Hramba</th><th>Namen</th></tr>
+      <tr><td>Podatki za aktivacijo licence (e-pošta / aktivacijska koda)</td><td>Supabase oblak</td><td>Preverjanje licence, preprečevanje piratstva</td></tr>
+      <tr><td>Podatki o projektih in meritvah hlodov</td><td>Lokalna naprava (SQLite)</td><td>Shranjevanje poslovnih podatkov</td></tr>
+      <tr><td>Nastavitve aplikacije</td><td>Lokalna naprava (SharedPreferences)</td><td>Jezik, tema in druge nastavitve</td></tr>
+      <tr><td>Izvožene datoteke (PDF / Excel)</td><td>Lokalna naprava ali deljenje po lastni izbiri</td><td>Samo na pobudo uporabnika, ne naložimo</td></tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <h2>3. Podatkov, ki jih NE zbiramo</h2>
+    <ul>
+      <li>Podatki o lokaciji / GPS</li>
+      <li>Podatki kamere ali mikrofona</li>
+      <li>Stiki ali adresar</li>
+      <li>Oglasni identifikatorji</li>
+      <li>Osebni podatki v oglaševalske namene</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Storitve tretjih oseb</h2>
+    <p>Aplikacija uporablja <strong>Supabase</strong> (supabase.com) za preverjanje licence. Supabase je ponudnik oblačnih storitev, ki je skladen z GDPR. Za podrobnosti o obdelavi podatkov glejte politiko zasebnosti Supabase. Ne vključujemo nobenih oglasnih SDK-jev, analitičnih orodij ali SDK-jev družbenih medijev.</p>
+  </div>
+
+  <div class="section">
+    <h2>5. Hramba podatkov</h2>
+    <ul>
+      <li><strong>Lokalni podatki</strong>: Shranjeni na vaši napravi; izbrisani ob odstranitvi aplikacije.</li>
+      <li><strong>Podatki o licenci</strong>: Hranjeni v Supabase, dokler ne zahtevate izbris.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Vaše pravice</h2>
+    <p>Imate pravico do: dostopa do podatkov, ki jih hranimo o vas; zahtevka za popravek ali izbris; umika soglasja. Za uveljavljanje teh pravic nas kontaktirajte: <strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+  <div class="section">
+    <h2>7. Zasebnost otrok</h2>
+    <p>LogMetric Pro ni namenjen otrokom, mlajšim od 13 let. Zavestno ne zbiramo osebnih podatkov otrok.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Spremembe politike</h2>
+    <p>Ob bistvenih spremembah vas bomo obvestili prek aplikacije ali registriranega e-poštnega naslova. Nadaljnja uporaba aplikacije pomeni sprejetje posodobljene politike.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Kontakt</h2>
+    <p>Upravljavec podatkov: <strong>Leaff d.o.o.</strong><br/>
+    E-pošta: <strong>leaff.doo@icloud.com</strong></p>
+  </div>
+
+</div><!-- /lang-sl -->
+
+<p class="updated">Last updated: 2026-03-30 &nbsp;|&nbsp; Leaff d.o.o.</p>
+
+</div><!-- /container -->
+
+<script>
+  function switchLang(lang, btn) {
+    document.querySelectorAll('.lang-section').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.lang-tabs button').forEach(el => el.classList.remove('active'));
+    document.getElementById('lang-' + lang).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogMetric Pro — Professional Timber Measurement Software</title>
+  <meta name="description" content="The professional timber measurement app trusted by foresters and sawmills across Europe. Multi-standard support, EUDR compliance ready, PDF reports." />
+  
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="LogMetric Pro — Professional Timber Measurement" />
+  <meta property="og:description" content="Multi-standard timber measurement app with EUDR compliance. Chinese, Slovak, Doyle, Scribner & more." />
+  <meta property="og:image" content="og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root {
+      --accent: #1B5E20;
+      --accent-light: #2E7D32;
+      --accent-hover: #388E3C;
+      --bg: #FAFAFA;
+      --card: #FFFFFF;
+      --text: #1A1A1A;
+      --muted: #5C5C5C;
+      --border: #E2E2E2;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(135deg, #0D3310 0%, var(--accent) 50%, #2E7D32 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .header-content { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
+    
+    .logo-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .logo-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    header .tagline {
+      font-size: 1.15rem;
+      opacity: 0.9;
+      max-width: 540px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+    .badges {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    .header-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary {
+      background: #fff;
+      color: var(--accent);
+    }
+    .btn-primary:hover { background: #F0F0F0; transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* ── Main ── */
+    main { max-width: 920px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Section ── */
+    section { margin-bottom: 4rem; }
+    
+    .section-label {
+      display: inline-block;
+      background: rgba(46,125,50,0.08);
+      color: var(--accent-light);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 0.85rem;
+    }
+    h2 {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+    }
+
+    /* ── Screenshots ── */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+      overflow: hidden;
+    }
+    .screenshot {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: #f0f0f0;
+    }
+    .screenshot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 9/19.5;
+      object-fit: cover;
+      transition: transform 0.25s ease;
+    }
+    .screenshot:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .screenshot:hover img {
+      transform: scale(1.03);
+    }
+    .screenshot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 9/19.5;
+      object-fit: cover;
+    }
+    .screenshot-placeholder {
+      aspect-ratio: 9/19.5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      background: linear-gradient(135deg, #f5f5f5, #ebebeb);
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+    }
+    .screenshot-placeholder .icon { font-size: 2.5rem; margin-bottom: 0.5rem; opacity: 0.4; }
+
+    /* ── Stats ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ── Features ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      border-color: var(--accent-light);
+      box-shadow: var(--shadow);
+    }
+    .feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(46,125,50,0.08);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 0.85rem;
+    }
+    .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .feature-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+
+    /* ── Comparison ── */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-top: 1.5rem;
+    }
+    .comparison-table th {
+      background: var(--accent);
+      color: #fff;
+      padding: 1rem 1.25rem;
+      text-align: left;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .comparison-table td {
+      padding: 0.85rem 1.25rem;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .comparison-table tr:last-child td { border-bottom: none; }
+    .comparison-table .check { color: var(--accent-light); font-weight: 700; }
+    .comparison-table .cross { color: #999; }
+    .comparison-table .highlight { background: rgba(46,125,50,0.04); font-weight: 600; }
+
+    /* ── Pricing ── */
+    .pricing-card {
+      background: var(--card);
+      border: 2px solid var(--accent);
+      border-radius: 20px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(27,94,32,0.12);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .pricing-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .pricing-price {
+      font-size: 3.2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .pricing-price span {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .pricing-period {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+    }
+    .pricing-features {
+      list-style: none;
+      margin: 1.5rem 0;
+      text-align: left;
+      display: inline-block;
+    }
+    .pricing-features li {
+      padding: 0.45rem 0;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .pricing-features li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.85rem;
+    }
+    .btn-cta {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.9rem 2rem;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      width: 100%;
+    }
+    .btn-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+    /* ── Steps ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+    }
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      position: relative;
+    }
+    .step-num {
+      position: absolute;
+      top: -0.6rem;
+      left: 1.25rem;
+      background: var(--accent);
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+    }
+    .step-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .step-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+    /* ── Standards ── */
+    .standards-scroll {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .standard-tag {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      background: linear-gradient(135deg, var(--accent) 0%, #2E7D32 100%);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      color: #fff;
+    }
+    .contact-card h2 { color: #fff; }
+    .contact-card .section-sub { color: rgba(255,255,255,0.8); }
+    .contact-card a {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+    }
+    .contact-card a:hover { border-color: #fff; }
+    .contact-card p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-top: 0.6rem; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-links { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.85rem; }
+      header .tagline { font-size: 1rem; }
+      .stats { grid-template-columns: 1fr; }
+      .comparison-table { font-size: 0.82rem; }
+      .pricing-price { font-size: 2.5rem; }
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate { animation: fadeUp 0.5s ease forwards; opacity: 0; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header>
+  <div class="header-content">
+    <div class="logo-row">
+      <div class="logo-icon">🌲</div>
+    </div>
+    <h1>LogMetric Pro</h1>
+    <p class="tagline">Professional timber measurement that foresters and sawmill operators trust. Accurate, compliant, and ready for the EUDR era.</p>
+    <div class="badges">
+      <span class="badge">📱 Android & iOS</span>
+      <span class="badge">⏱ 30-Day Free Trial</span>
+      <span class="badge">🔒 No Sign-up Required</span>
+    </div>
+    <div class="header-cta">
+      <a href="#pricing" class="btn btn-primary">Start Free Trial →</a>
+      <a href="#how-to-buy" class="btn btn-outline">How It Works</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ── Screenshots ── -->
+  <section style="margin-bottom: 4rem; padding-top: 0;">
+    <div class="screenshots">
+      <div class="screenshot">
+        <img src="screenshot-1.png" alt="LogMetric Pro — Main measurement screen" loading="lazy" />
+      </div>
+      <div class="screenshot">
+        <img src="screenshot-2.png" alt="LogMetric Pro — Project list" loading="lazy" />
+      </div>
+      <div class="screenshot">
+        <img src="screenshot-3.png" alt="LogMetric Pro — PDF report export" loading="lazy" />
+      </div>
+      <div class="screenshot">
+        <img src="screenshot-4.png" alt="LogMetric Pro — Settings & standards" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats ── -->
+  <section>
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Measurement Standards</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Languages Supported</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Sign-up Required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Standards ── -->
+  <section>
+    <span class="section-label">Supported Standards</span>
+    <h2>One app. Every timber rule.</h2>
+    <p class="section-sub">Stop switching between tables and calculators. LogMetric Pro handles the math so you can focus on the forest.</p>
+    <div class="standards-scroll">
+      <span class="standard-tag">🇨🇳 Chinese Standard</span>
+      <span class="standard-tag">🇸🇰 Slovak Table</span>
+      <span class="standard-tag">📐 Doyle Rule</span>
+      <span class="standard-tag">📐 Scribner Rule</span>
+      <span class="standard-tag">📐 International 1/4"</span>
+      <span class="standard-tag">📐 BF / m³</span>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section>
+    <span class="section-label">Everything You Need</span>
+    <h2>Built for professionals, not novices.</h2>
+    <p class="section-sub">From the forest to the mill — every step of the measurement workflow, in one app.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📏</div>
+        <h3>Multi-Standard Calculation</h3>
+        <p>Chinese, Slovak, Doyle, Scribner, International 1/4" and more — switch standards in seconds.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📁</div>
+        <h3>Project Organization</h3>
+        <p>Organize logs by project and batch. Clean folder structure for easy navigation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>PDF & Excel Export</h3>
+        <p>Professional reports ready for clients, customs, and regulatory handover documentation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">☁️</div>
+        <h3>Cloud Backup</h3>
+        <p>Automatic backup to the cloud. Restore your entire measurement history on any device.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📷</div>
+        <h3>Snapshots</h3>
+        <p>Capture measurement snapshots at any point. Compare progress across time and batches.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🌍</div>
+        <h3>Multilingual</h3>
+        <p>Full interface in Chinese, English, and Slovenian. Perfect for cross-border operations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Comparison ── -->
+  <section>
+    <span class="section-label">Why LogMetric Pro?</span>
+    <h2>The smarter alternative to spreadsheets.</h2>
+    <p class="section-sub">Stop relying on manual calculations and paper records. Here's what changes when you switch.</p>
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Capability</th>
+          <th>LogMetric Pro</th>
+          <th>Manual / Spreadsheets</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Multiple timber standards</td>
+          <td class="check highlight">✓ All included</td>
+          <td class="cross">✗ Separate tables needed</td>
+        </tr>
+        <tr>
+          <td>Instant PDF reports</td>
+          <td class="check highlight">✓ One tap</td>
+          <td class="cross">✗ Manual formatting</td>
+        </tr>
+        <tr>
+          <td>Measurement history</td>
+          <td class="check highlight">✓ Cloud synced</td>
+          <td class="cross">✗ Scattered files</td>
+        </tr>
+        <tr>
+          <td>Multi-language support</td>
+          <td class="check highlight">✓ CN / EN / SL</td>
+          <td class="cross">✗ Not supported</td>
+        </tr>
+        <tr>
+          <td>EUDR-ready documentation</td>
+          <td class="check highlight">✓ Built-in</td>
+          <td class="cross">✗ Extra step</td>
+        </tr>
+        <tr>
+          <td>Cross-device access</td>
+          <td class="check highlight">✓ Cloud restore</td>
+          <td class="cross">✗ Local only</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section id="pricing">
+    <span class="section-label">Pricing</span>
+    <h2>One price. Everything included.</h2>
+    <p class="section-sub">No hidden fees, no feature tiers. Every update is free during your license period.</p>
+    <div class="pricing-card">
+      <div class="pricing-badge">30-Day Free Trial · No Credit Card</div>
+      <div class="pricing-price">€150 <span>/ year</span></div>
+      <div class="pricing-period">Per device · Professional license</div>
+      <ul class="pricing-features">
+        <li>All measurement standards included</li>
+        <li>Unlimited projects & batches</li>
+        <li>Cloud backup & restore</li>
+        <li>PDF & Excel export</li>
+        <li>All supported languages</li>
+        <li>Free updates during license</li>
+        <li>Email support</li>
+      </ul>
+      <a href="#how-to-buy" class="btn-cta">Start Free Trial — Download Now</a>
+    </div>
+  </section>
+
+  <!-- ── How to Buy ── -->
+  <section id="how-to-buy">
+    <span class="section-label">Purchase Flow</span>
+    <h2>Up and running in minutes.</h2>
+    <p class="section-sub">No app store payment needed. Simple activation via email.</p>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h3>Download & Try Free</h3>
+        <p>Install from Google Play. Your 30-day full-feature trial starts automatically — no sign-up needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h3>Copy Your Device Code</h3>
+        <p>Go to Settings → About → Basic Info. Copy the device fingerprint code shown in the app.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h3>Contact Us</h3>
+        <p>Email <strong>leaff.doo@icloud.com</strong> with your device code. We'll send a secure payment link within 24h.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h3>Activate & Go</h3>
+        <p>Enter your activation code in the app. Instant activation — no restart required.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Contact ── -->
+  <section>
+    <div class="contact-card">
+      <h2>Questions? We're here to help.</h2>
+      <p class="section-sub">For purchase inquiries, technical support, or anything in between.</p>
+      <a href="mailto:leaff.doo@icloud.com">leaff.doo@icloud.com</a>
+      <p>Typical response time: within 24 hours on business days</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="privacy_policy.html">Privacy Policy</a>
+  </div>
+  <p>© 2026 Leaff d.o.o. · EUDR-Ready Timber Measurement</p>
+</footer>
+
+</body>
+</html>
