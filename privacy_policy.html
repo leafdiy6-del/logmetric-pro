@@ -131,8 +131,9 @@
     <h2>2. 我们收集的数据</h2>
     <table>
       <tr><th>数据类型</th><th>存储位置</th><th>用途</th></tr>
-      <tr><td>许可证激活信息（邮箱/激活码）</td><td>Supabase 云端</td><td>验证授权、防止盗版</td></tr>
-      <tr><td>项目与原木测量数据</td><td>本地设备（SQLite）</td><td>用户业务数据存储</td></tr>
+      <tr><td>设备指纹（设备唯一标识符）</td><td>Supabase 云端</td><td>自动注册试用、授权验证</td></tr>
+      <tr><td>许可证信息（激活码）</td><td>Supabase 云端 + 本地安全存储</td><td>验证授权、防止盗版</td></tr>
+      <tr><td>项目与原木测量数据</td><td>本地设备（SQLite）；付费用户可选择云备份（Supabase）。云备份内容在上传前经 AES-256-CBC 加密，密钥由设备唯一指纹派生，开发者无法解密</td><td>用户业务数据存储</td></tr>
       <tr><td>应用偏好设置</td><td>本地设备（SharedPreferences）</td><td>保存语言、主题等设置</td></tr>
       <tr><td>导出文件（PDF / Excel）</td><td>本地设备或用户主动分享</td><td>用户主动操作，不上传</td></tr>
     </table>
@@ -151,7 +152,7 @@
 
   <div class="section">
     <h2>4. 第三方服务</h2>
-    <p>本应用使用 <strong>Supabase</strong>（supabase.com）处理许可证验证。Supabase 是符合 GDPR 的云服务提供商。您可查阅 Supabase 隐私政策了解其数据处理方式。除此之外，本应用不集成任何广告 SDK、分析工具或社交平台 SDK。</p>
+    <p>本应用使用 <strong>Supabase</strong>（supabase.com）处理许可证验证及云备份存储。Supabase 是符合 GDPR 的云服务提供商。云备份数据在上传前已在设备本地完成 AES-256-CBC 加密，Supabase 及开发者均无法读取其内容。您可查阅 Supabase 隐私政策了解其数据处理方式。除此之外，本应用不集成任何广告 SDK、分析工具或社交平台 SDK。</p>
   </div>
 
   <div class="section">
@@ -200,8 +201,9 @@
     <h2>2. Data We Collect</h2>
     <table>
       <tr><th>Data Type</th><th>Storage</th><th>Purpose</th></tr>
-      <tr><td>License activation info (email / activation code)</td><td>Supabase cloud</td><td>License verification, anti-piracy</td></tr>
-      <tr><td>Project and log measurement data</td><td>Local device (SQLite)</td><td>User business data storage</td></tr>
+      <tr><td>Device fingerprint (unique device identifier)</td><td>Supabase cloud</td><td>Automatic trial registration, license verification</td></tr>
+      <tr><td>License information (activation code)</td><td>Supabase cloud + local secure storage</td><td>License verification, anti-piracy</td></tr>
+      <tr><td>Project and log measurement data</td><td>Local device (SQLite); paid users may opt into cloud backup (Supabase). Cloud backups are AES-256-CBC encrypted on-device before upload — the developer cannot decrypt them</td><td>User business data storage</td></tr>
       <tr><td>App preferences &amp; settings</td><td>Local device (SharedPreferences)</td><td>Language, theme, and other settings</td></tr>
       <tr><td>Exported files (PDF / Excel)</td><td>Local device or user-initiated sharing</td><td>User-initiated only, never uploaded</td></tr>
     </table>
@@ -220,7 +222,7 @@
 
   <div class="section">
     <h2>4. Third-Party Services</h2>
-    <p>The app uses <strong>Supabase</strong> (supabase.com) for license verification. Supabase is a GDPR-compliant cloud provider. Please refer to Supabase's Privacy Policy for details on their data handling. We do not integrate any advertising SDKs, analytics platforms, or social media SDKs.</p>
+    <p>The app uses <strong>Supabase</strong> (supabase.com) for license verification and cloud backup storage. Supabase is a GDPR-compliant cloud provider. Cloud backup data is AES-256-CBC encrypted on the device before upload; neither Supabase nor the developer can read its contents. Please refer to Supabase's Privacy Policy for details on their data handling. We do not integrate any advertising SDKs, analytics platforms, or social media SDKs.</p>
   </div>
 
   <div class="section">
@@ -269,8 +271,9 @@
     <h2>2. Podatki, ki jih zbiramo</h2>
     <table>
       <tr><th>Vrsta podatkov</th><th>Hramba</th><th>Namen</th></tr>
-      <tr><td>Podatki za aktivacijo licence (e-pošta / aktivacijska koda)</td><td>Supabase oblak</td><td>Preverjanje licence, preprečevanje piratstva</td></tr>
-      <tr><td>Podatki o projektih in meritvah hlodov</td><td>Lokalna naprava (SQLite)</td><td>Shranjevanje poslovnih podatkov</td></tr>
+      <tr><td>Prstni odtis naprave (edinstveni identifikator naprave)</td><td>Supabase oblak</td><td>Samodejna registracija preskusne različice, preverjanje licence</td></tr>
+      <tr><td>Podatki o licenci (aktivacijska koda)</td><td>Supabase oblak + lokalna varna hramba</td><td>Preverjanje licence, preprečevanje piratstva</td></tr>
+      <tr><td>Podatki o projektih in meritvah hlodov</td><td>Lokalna naprava (SQLite); plačljivi uporabniki lahko izberejo varnostno kopiranje v oblak (Supabase). Varnostne kopije so pred nalaganjem šifrirane z AES-256-CBC na napravi — razvijalec jih ne more dešifrirati</td><td>Shranjevanje poslovnih podatkov</td></tr>
       <tr><td>Nastavitve aplikacije</td><td>Lokalna naprava (SharedPreferences)</td><td>Jezik, tema in druge nastavitve</td></tr>
       <tr><td>Izvožene datoteke (PDF / Excel)</td><td>Lokalna naprava ali deljenje po lastni izbiri</td><td>Samo na pobudo uporabnika, ne naložimo</td></tr>
     </table>
@@ -289,7 +292,7 @@
 
   <div class="section">
     <h2>4. Storitve tretjih oseb</h2>
-    <p>Aplikacija uporablja <strong>Supabase</strong> (supabase.com) za preverjanje licence. Supabase je ponudnik oblačnih storitev, ki je skladen z GDPR. Za podrobnosti o obdelavi podatkov glejte politiko zasebnosti Supabase. Ne vključujemo nobenih oglasnih SDK-jev, analitičnih orodij ali SDK-jev družbenih medijev.</p>
+    <p>Aplikacija uporablja <strong>Supabase</strong> (supabase.com) za preverjanje licence in shranjevanje varnostnih kopij v oblaku. Supabase je ponudnik oblačnih storitev, ki je skladen z GDPR. Podatki varnostnih kopij so pred nalaganjem šifrirani z AES-256-CBC na napravi; niti Supabase niti razvijalec ne moreta brati njihove vsebine. Za podrobnosti o obdelavi podatkov glejte politiko zasebnosti Supabase. Ne vključujemo nobenih oglasnih SDK-jev, analitičnih orodij ali SDK-jev družbenih medijev.</p>
   </div>
 
   <div class="section">
@@ -323,7 +326,7 @@
 
 </div><!-- /lang-sl -->
 
-<p class="updated">Last updated: 2026-03-30 &nbsp;|&nbsp; Leaff d.o.o.</p>
+<p class="updated">Last updated: 2026-04-02 &nbsp;|&nbsp; Leaff d.o.o.</p>
 
 </div><!-- /container -->
 
